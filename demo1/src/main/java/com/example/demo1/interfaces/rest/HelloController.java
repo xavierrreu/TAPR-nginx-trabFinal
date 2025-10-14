@@ -16,4 +16,14 @@ public class HelloController {
         return "Demo1";
     }
 
+    @GetMapping("/waiter")
+    public String waiter() {
+        return "Demo1 - Waiter";
+    }
+
+    @GetMapping("/customer")
+    public String customer() {
+        return "Demo1 - Customer";
+    }
+
 }
