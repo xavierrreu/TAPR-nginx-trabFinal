@@ -12,45 +12,6 @@ services:
       - ~/.m2:/root/.m2
     networks:
       - app-network
-  demo1:
-    build:
-      context: ./demo1
-    container_name: demo1
-    ports:
-      - "8081:8080"
-    volumes:
-      - ./demo1:/app
-      - ~/.m2:/root/.m2
-    depends_on:
-      - service-discovery
-    networks:
-      - app-network
-  demo1-2:
-    build:
-      context: ./demo1
-    container_name: demo1-2
-    ports:
-      - "8084:8080"
-    volumes:
-      - ./demo1:/app
-      - ~/.m2:/root/.m2
-    depends_on:
-      - service-discovery
-    networks:
-      - app-network
-  demo2:
-    build:
-      context: ./demo2
-    container_name: demo2
-    ports:
-      - "8082:8080"
-    volumes:
-      - ./demo2:/app
-      - ~/.m2:/root/.m2
-    depends_on:
-      - service-discovery
-    networks:
-      - app-network
   auth-service:
     build:
       context: ./auth-service
@@ -64,6 +25,30 @@ services:
       - service-discovery
     networks:
       - app-network
+    user-service:
+    build: ./user-service
+    depends_on: [service-discovery]
+    ports: ["8081:8080"]
+  learning-service:
+    build: ./learning-service
+    depends_on: [service-discovery]
+    ports: ["8082:8080"]
+  test-service:
+    build: ./test-service
+    depends_on: [service-discovery]
+    ports: ["8083:8080"]
+  recruitment-service:
+    build: ./recruitment-service
+    depends_on: [service-discovery]
+    ports: ["8084:8080"]
+  subscription-service:
+    build: ./subscription-service
+    depends_on: [service-discovery]
+    ports: ["8086:8080"]
+  report-service:
+    build: ./report-service
+    depends_on: [service-discovery]
+    ports: ["8087:8080"]
   gateway-service:
     build:
       context: ./gateway-service
