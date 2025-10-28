@@ -56,7 +56,37 @@
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	
+   <dependency>
+     <groupId>org.springframework.security</groupId>
+     <artifactId>spring-security-web</artifactId>
+     <version>5.1.6.RELEASE</version>
+   </dependency>
+ 
+   <dependency>
+     <groupId>javax</groupId>
+     <artifactId>javaee-api</artifactId>
+     <version>8.0.1</version>
+   </dependency>
+ 
+   <dependency>
+     <groupId>javax</groupId>
+     <artifactId>javaee-api</artifactId>
+     <version>8.0.1</version>
+   </dependency>
+ 
+   <dependency>
+     <groupId>org.apache.ant</groupId>
+     <artifactId>ant</artifactId>
+     <version>1.10.6</version>
+   </dependency>
+ 
+   <dependency>
+     <groupId>org.springframework.security</groupId>
+     <artifactId>spring-security-config</artifactId>
+     <version>5.1.6.RELEASE</version>
+   </dependency>
+ </dependencies>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
