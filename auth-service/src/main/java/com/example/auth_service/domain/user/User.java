@@ -36,10 +36,31 @@ public class User {
     @Embedded
     private Role role;
 
+    @Embedded
+    private Endereco endereco;
+
+    @ElementCollection
+    @CollectionTable(name = "user_historico_profissional", joinColumns = @JoinColumn(name = "user_id"))
+    private List<HistoricoProfissional> historicoProfissional;
+
+    @ElementCollection
+    @CollectionTable(name = "user_areas_interesse", joinColumns = @JoinColumn(name = "user_id"))
+    private List<AreasDeInteresse> areasDeInteresse;
+    
+    @Column(length = 255)
+    private  String linkedin;
+
+    @Column(length = 255)
+    private String github;
+
     public User(String name, String password, @Valid Email email, RoleType role) {
         this.name = name;
         this.password = password;
         this.email = email;
         this.role = Role.of(role);
+        this.historicoProfissional = new ArrayList<>();
+        this.areasDeInteresse = new ArrayList<>();
+        this.linkedin = linkedin;
+        this.github = github;
     }
 }
